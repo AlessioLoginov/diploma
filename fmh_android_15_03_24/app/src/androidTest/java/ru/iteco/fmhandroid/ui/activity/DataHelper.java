@@ -82,22 +82,18 @@ public class DataHelper {
 
     }
 
-    // Получаем текущую дату в нужном формате
     public static String getCurrentDate() {
         Date currentDate = new Date();
         DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
         return dateFormat.format(currentDate);
     }
 
-    // Получаем текущее время в нужном формате
     public static String getCurrentTime() {
         Date currentDate = new Date();
         DateFormat dateFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
         return dateFormat.format(currentDate);
     }
 
-    // Создаем матчер, который позволит выбрать View с определенным индексом в случае,
-    // когда есть множество таких View экрана, соответствующих определенному критерию поиска.
     public static Matcher<View> withIndex(final Matcher<View> matcher, final int index) {
         return new TypeSafeMatcher<View>() {
             int currentIndex = 0;
@@ -116,8 +112,6 @@ public class DataHelper {
         };
     }
 
-    // Создаем матчер, который используем для определения, находится ли дочерний элемент View
-    // на определённой позиции внутри родительской.
     public static Matcher<View> childAtPosition(final Matcher<View> parentMatcher, final int position) {
         return new TypeSafeMatcher<View>() {
             @Override
@@ -135,7 +129,6 @@ public class DataHelper {
         };
     }
 
-    // Создаем матчер, который используем для взаимодействия с дочерними элементами по их индексу
     public static Matcher<View> childAtPosition(Matcher<View> matcher, final Matcher<View> parentMatcher, final int position) {
         return new TypeSafeMatcher<View>() {
             @Override
@@ -154,7 +147,6 @@ public class DataHelper {
     }
 
 
-    // Класс для генерации случайных категорий из списка
     public static class Rand {
         static final Random rand = new Random();
 
@@ -173,7 +165,6 @@ public class DataHelper {
         }
     }
 
-    // Метод для извлечения текста из TextView
     public static class Text {
         public static String getText(ViewInteraction matcher) {
             final String[] text = new String[1];
@@ -202,14 +193,10 @@ public class DataHelper {
         }
     }
 
-    // Метод нужен чтобы убедиться, что определенный элемент отображается на экране,
-    // прежде чем выполнять какие-либо действия с ним.
     public static void elementWaiting(Matcher matcher, int millis) {
         onView(isRoot()).perform(waitForElement(matcher, millis));
     }
 
-       // Метод для ожидания определенного элемента интерфейса (View)
-    // в течение заданного времени (в миллисекундах)
 
     public static class User {
         private final String login;

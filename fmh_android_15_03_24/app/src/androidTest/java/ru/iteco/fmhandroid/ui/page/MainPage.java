@@ -11,20 +11,16 @@ import ru.iteco.fmhandroid.R;
 public class MainPage {
     public ViewInteraction mainLogo;
 
-    // Выход из приложения
     public ViewInteraction profileButton;
     public ViewInteraction logOutButton;
 
-    // Бургерное Меню
     public ViewInteraction menuButton;
     public ViewInteraction mainOfMenu;
     public ViewInteraction newsOfMenu;
     public ViewInteraction aboutOfMenu;
 
-    // Переход к блоку цитат о хосписе
     public ViewInteraction ourMissionButton;
 
-    // Блок новостей
     public ViewInteraction titleOfNewsContainer;
     public ViewInteraction allNewsButton;
     public ViewInteraction collapseAllNewsButton;

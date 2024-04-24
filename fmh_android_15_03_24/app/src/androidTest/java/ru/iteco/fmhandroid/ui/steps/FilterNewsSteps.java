@@ -52,17 +52,17 @@ public class FilterNewsSteps {
     }
 
     public void clickActiveCheckBox() {
-        Allure.step("Нажать чекбокс - Active");
+        Allure.step("Нажать чекбокс - Активна");
         filterNewsPage.filterActive.perform(click());
     }
 
     public void clickNotActiveCheckBox() {
-        Allure.step("Нажать чекбокс - Not active");
+        Allure.step("Нажать чекбокс - НЕ активна");
         filterNewsPage.filterNotActive.perform(click());
     }
 
     public void checkBoxStatusActive(boolean checked) {
-        Allure.step("Проверка нажатия - Active");
+        Allure.step("Проверка нажатия - Активна");
 
         if (checked) {
             filterNewsPage.filterActive.check(matches(isChecked()));
@@ -72,7 +72,7 @@ public class FilterNewsSteps {
     }
 
     public void checkBoxStatusNotActive(boolean checked) {
-        Allure.step("Проверка нажатия - Not active");
+        Allure.step("Проверка нажатия - НЕ активна");
 
         if (checked) {
             filterNewsPage.filterNotActive.check(matches(isChecked()));

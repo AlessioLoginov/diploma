@@ -22,11 +22,8 @@ public class CreateNewsPage {
     public ViewInteraction saveButton;
     public ViewInteraction cancelButton;
 
-
-    //Сообщение об ошибке
     public ViewInteraction errorMessage;
 
-    //Окно вопроса
     public ViewInteraction okButtonMessage;
     public ViewInteraction cancelButtonMessage;
 

@@ -18,7 +18,6 @@ public class FilterNewsPage {
     public ViewInteraction filterButton;
     public ViewInteraction cancelButton;
 
-    //Окно вопроса
     public ViewInteraction okButtonMessage;
     public ViewInteraction cancelButtonMessage;
 
@@ -37,7 +36,6 @@ public class FilterNewsPage {
         filterButton = onView(withId(R.id.filter_button));
         cancelButton = onView(withId(R.id.cancel_button));
 
-        //Окно вопроса
         okButtonMessage = onView(withText("OK"));
         cancelButtonMessage = onView(withText("Отмена"));
     }

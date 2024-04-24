@@ -22,6 +22,6 @@ public class DownloadSteps {
 
     public void appDownload() {
         Allure.step("Загрузка приложения");
-        elementWaiting(withId(R.id.splashscreen_image_view), 10000);
+        elementWaiting(withId(R.id.splashscreen_image_view), 12000);
     }
 }

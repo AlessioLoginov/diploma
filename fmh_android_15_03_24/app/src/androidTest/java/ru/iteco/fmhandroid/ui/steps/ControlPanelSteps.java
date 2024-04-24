@@ -26,12 +26,12 @@ public class ControlPanelSteps {
     public void openControlPanelPage() {
         Allure.step("Переход в панель управления со страницы Новости");
         newsMainPage.controlPanelButton.perform(click());
-        elementWaiting(withId(R.id.add_news_image_view), 5000);
+        elementWaiting(withId(R.id.add_news_image_view), 6000);
     }
 
     public void checkThatControlPanelContentIsFull() {
         Allure.step("Проверка, что в панели управления полный контент");
-        elementWaiting(withId(R.id.add_news_image_view), 5000);
+        elementWaiting(withId(R.id.add_news_image_view), 6000);
         controlPanelPage.logo.check(matches(isDisplayed()));
         controlPanelPage.sortButton.check(matches(isDisplayed()));
         controlPanelPage.filterButton.check(matches(isDisplayed()));

@@ -21,12 +21,9 @@ public class ControlPanelPage {
     public ViewInteraction titlePage;
     public ViewInteraction newsList;
 
-    //Меню панели управления
     public ViewInteraction sortButton;
     public ViewInteraction filterButton;
     public ViewInteraction addNewsButton;
-
-    //Блок каждой новости
 
     public ViewInteraction newsConstraintLayout;
     public ViewInteraction newsTitleText;
@@ -59,7 +56,6 @@ public class ControlPanelPage {
                 onView(withIndex(withId(R.id.news_item_published_text_view), 0));
     }
 
-    //Меню каждой новости
     public ViewInteraction deleteNewsButton(String newsTitle) {
         return onView(allOf(withId(R.id.delete_news_item_image_view),
                 withParent(withParent(allOf(withId(R.id.news_item_material_card_view),

@@ -14,7 +14,6 @@ import ru.iteco.fmhandroid.R;
 
 public class NewsMainPage {
 
-    //Страница всех новостей
     public ViewInteraction logo;
     public ViewInteraction title;
     public ViewInteraction sort;
