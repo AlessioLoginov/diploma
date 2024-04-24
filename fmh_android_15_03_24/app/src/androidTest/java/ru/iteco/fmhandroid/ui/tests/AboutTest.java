@@ -47,50 +47,52 @@ public class AboutTest {
             mainSteps.mainScreenLoad();
         }
     }
-
+    /*Тест проверяет, что страница "О приложении" содержит все необходимые элементы. */
     @Test
     @Feature(value = "Тесты по странице \"О приложении\"")
     @DisplayName("Наличие всех элементов страницы")
-    public void shouldBeFullContentInAboutBlock() {
+    public void shouldContainAllElementsOnAboutPage() {
         mainSteps.openAboutPage();
         aboutSteps.checkThatAboutBlockContentIsFull();
     }
 
+    /*Тест проверяет функциональность кнопки возврата на главную страницу с страницы "О приложении" */
     @Test
     @Feature(value = "Тесты по странице \"О приложении\"")
     @DisplayName("Возвращение на главную")
-    public void shouldGoBackMainPage() {
+    public void shouldReturnToMainPageFromAboutPage() {
         mainSteps.openAboutPage();
         aboutSteps.goBack();
         mainSteps.mainScreenLoad();
         mainSteps.checkThatMainBlockContentIsFull();
     }
-
-    /*@Test
+    /*Тест предназначен для проверки возможности перехода на страницу "О приложении" из страницы "Новости". Однако кнопка перехода не активна, и перейти невозможно. */
+    @Test
     @Feature(value = "Тесты по странице \"О приложении\"")
     @DisplayName("Переход к странице \"О приложении\", находясь на странице \"Новости\"")
-    public void shouldOpenAboutPageFromNewsPage() {
+    public void shouldNotNavigateToAboutPageFromNewsPageDueToInactiveLink() {
         mainSteps.openNewsPage();
         mainSteps.openAboutPage();
         aboutSteps.checkThatAboutBlockContentIsFull();
-        //Фактически кнопка не активна, нельзя перейти
 
-    } */
+    } 
+
+    /*Тест проверяет переход к политике конфиденциальности по кликабельной ссылке, хотя страница не загружается */
     @Test
     @Feature(value = "Тесты по странице \"О приложении\"")
     @DisplayName("Переход к политике конфиденциальности по ссылке. Ссылка кликабельна, но страница фактически не загружается")
-    public void shouldGoToPrivacyPolicy() {
+    public void shouldAttemptToOpenPrivacyPolicyLink() {
         mainSteps.openAboutPage();
         Intents.init();
         aboutSteps.goToPrivacyPolicy();
         intended(hasData("https://vhospice.org/#/privacy-policy"));
         Intents.release();
     }
-
+    /*Тест проверяет переход к пользовательскому соглашению по кликабельной ссылке, но страница фактически не загружается */
     @Test
     @Feature(value = "Тесты по странице \"О приложении\"")
     @DisplayName("Переход к пользовательскому соглашению по ссылке. Ссылка кликабельна, но страница фактически не загружается")
-    public void shouldGoToUserAgreement() {
+    public void shouldAttemptToOpenTermsOfUseLink() {
         mainSteps.openAboutPage();
         Intents.init();
         aboutSteps.goToTermsOfUse();
