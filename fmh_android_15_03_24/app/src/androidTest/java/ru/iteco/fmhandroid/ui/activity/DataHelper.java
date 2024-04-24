@@ -28,16 +28,17 @@ import java.util.Locale;
 import java.util.Random;
 import java.util.concurrent.TimeoutException;
 
+
 public class DataHelper {
-    public User getValidUser() { // ... возвращает пользователя с валидными учетными данными
+    public User getValidUser() {
         return new User("login2", "password2");
     }
 
-    public User getNotValidUser() { // ... возвращает пользователя с невалидными учетными данными
+    public User getNotValidUser() {
         return new User("login", "password");
     }
 
-    public static ViewAction waitForElement(final Matcher<View> matcher, final long millis) { // ... ожидание элемента до определенного времени
+    public static ViewAction waitForElement(final Matcher matcher, final long millis) {
         return new ViewAction() {
             @Override
             public Matcher<View> getConstraints() {
@@ -68,7 +69,8 @@ public class DataHelper {
                         uiController.loopMainThreadForAtLeast(100);
                     }
 
-                } while (System.currentTimeMillis() < endTime);
+                }
+                while (System.currentTimeMillis() < endTime);
 
                 throw new PerformException.Builder()
                         .withActionDescription(this.getDescription())
@@ -133,6 +135,25 @@ public class DataHelper {
         };
     }
 
+    // Создаем матчер, который используем для взаимодействия с дочерними элементами по их индексу
+    public static Matcher<View> childAtPosition(Matcher<View> matcher, final Matcher<View> parentMatcher, final int position) {
+        return new TypeSafeMatcher<View>() {
+            @Override
+            public void describeTo(Description description) {
+                description.appendText("Child at position " + position + " in parent ");
+                parentMatcher.describeTo(description);
+            }
+
+            @Override
+            public boolean matchesSafely(View view) {
+                ViewParent parent = view.getParent();
+                return parent instanceof ViewGroup && parentMatcher.matches(parent)
+                        && view.equals(((ViewGroup) parent).getChildAt(position));
+            }
+        };
+    }
+
+
     // Класс для генерации случайных категорий из списка
     public static class Rand {
         static final Random rand = new Random();
@@ -185,5 +206,26 @@ public class DataHelper {
     // прежде чем выполнять какие-либо действия с ним.
     public static void elementWaiting(Matcher matcher, int millis) {
         onView(isRoot()).perform(waitForElement(matcher, millis));
+    }
+
+    // Метод для ожидания определенного элемента интерфейса (View)
+    // в течение заданного времени (в миллисекундах)
+
+    public static class User {
+        private final String login;
+        private final String password;
+
+        public User(String login, String password) {
+            this.login = login;
+            this.password = password;
+        }
+
+        public String getLogin() {
+            return login;
+        }
+
+        public String getPassword() {
+            return password;
+        }
     }
 }
