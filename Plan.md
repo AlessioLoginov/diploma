@@ -132,6 +132,7 @@
 
 - [Чек-лист](https://docs.google.com/spreadsheets/d/1gTjyUHkcQfmJK7_jNAA6gCGzWxkf2OGuMRAAZf1uhoo/edit?usp=sharing)
 - [Тест-кейсы](https://docs.google.com/spreadsheets/d/18EOriyNmkvxDnbUzjyPIR86qTo1irk1DnD3H78v5dFk/edit?usp=sharing)
+- [Отчет о тестировании](https://github.com/AlessioLoginov/diploma/blob/master/Result.md)
 
 #### Дополнительные аспекты
 

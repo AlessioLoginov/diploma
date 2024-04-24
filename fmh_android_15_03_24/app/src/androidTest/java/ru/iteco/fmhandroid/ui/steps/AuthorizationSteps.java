@@ -25,7 +25,7 @@ public class AuthorizationSteps {
 
     public void loadAuthorizationPage() {
         Allure.step("Загрузка страницы авторизации");
-        elementWaiting(withId(R.id.enter_button), 10000);
+        elementWaiting(withId(R.id.enter_button), 4000);
     }
 
     public void checkThatAuthorizationBlockContentIsFull() {

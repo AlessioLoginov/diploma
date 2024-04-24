@@ -16,7 +16,7 @@ public class AboutSteps {
 
     public void checkThatAboutBlockContentIsFull() {
         Allure.step("Проверка, что в блоке \"О приложении\" полный контент");
-        elementWaiting(withId(R.id.about_company_info_label_text_view), 6000);
+        elementWaiting(withId(R.id.about_company_info_label_text_view), 5000);
         aboutPage.logo.check(matches(isDisplayed()));
         aboutPage.backButton.check(matches(isDisplayed()));
         aboutPage.versionTitleField.check(matches(isDisplayed()));

@@ -21,7 +21,7 @@ public class NewsSteps {
 
     public void newsListLoad() {
         Allure.step("Загрузка списка новостей");
-        elementWaiting(withId(R.id.news_list_recycler_view), 6000);
+        elementWaiting(withId(R.id.news_list_recycler_view), 5000);
     }
 
     public void checkThatNewsBlockContentIsFull() {

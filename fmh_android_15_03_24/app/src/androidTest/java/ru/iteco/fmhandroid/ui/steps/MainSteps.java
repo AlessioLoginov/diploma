@@ -17,7 +17,7 @@ public class MainSteps {
 
     public void mainScreenLoad() {
         Allure.step("Загрузка страницы");
-        elementWaiting(withId(R.id.all_news_text_view), 6000);
+        elementWaiting(withId(R.id.all_news_text_view), 5000);
     }
 
     public void checkThatMainBlockContentIsFull() {
