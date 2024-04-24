@@ -43,17 +43,19 @@ public class QuotesTest {
         mainSteps.openQuotesPage();
     }
 
+    /*Тест проверяет наличие всех элементов на странице с цитатами */
     @Test
     @Feature(value = "Тесты по странице с цитатами")
     @Story("Наличие всех элементов страницы")
-    public void shouldBeFullContentInQuotesBlock() {
+    public void shouldDisplayAllElementsOnQuotesPage() {
         quotesSteps.checkThatQuotesBlockContentIsFull();
     }
 
+    /*Тест выполняет проверку функциональности раскрытия и сворачивания цитаты на странице */
     @Test
     @Feature(value = "Тесты по странице с цитатами")
     @Story("Развернуть цитату и свернуть")
-    public void shouldBeDisplayQuote() {
+    public void shouldToggleQuoteDisplay() {
         String quoteTestText = "\"Ну, идеальное устройство мира в моих глазах. Где никто не оценивает, никто не осудит, где говоришь, и тебя слышат, где, если страшно, тебя обнимут и возьмут за руку, а если холодно тебя согреют.” Юля Капис, волонтер";
 
         quotesSteps.checkQuote(0);

@@ -60,42 +60,39 @@ public class AuthorizationTest {
         } catch (Exception ignored) {
         }
     }
-
+    /*Тест проверяет, что все элементы блока авторизации присутствуют на странице */
     @Test
     @Feature(value = "Тесты по странице Авторизации")
     @Story("Наличие всех элементов формы авторизации")
-    public void shouldBeFullContentInAboutBlock() {
+    public void shouldDisplayAllElementsInAuthorizationBlock() {
         authorizationSteps.checkThatAuthorizationBlockContentIsFull();
     }
-
+    /*Тест проверяет процесс авторизации с использованием корректных учетных данных пользователя */
     @Test
     @Feature(value = "Тесты по странице Авторизации")
     @Story("Авторизация в приложении под валидными данными")
-    public void shouldLoginByValidUser() {
+    public void shouldAuthorizeAndLoadMainScreenWithValidCredentials() {
         authorizationSteps.validLogIn();
         mainSteps.mainScreenLoad();
         mainSteps.checkThatMainBlockContentIsFull();
     }
-
-    /*@Test
+    /*Тест проверяет процесс авторизации с невалидными учетными данными  */
+    @Test
     @Feature(value = "Тесты по странице Авторизации")
     @Story("Авторизация в приложении под НЕ валидными данными")
-    public void shouldLoginByNotValidUser() {
+    public void shouldRejectLoginWithInvalidCredentialsAndShowErrorMessage() {
         authorizationSteps.notValidLogIn();
-
-        //Проверка сообщения:
         authorizationSteps.checkToastMessageText("Неверный логин или пароль", decorView);
         //Верное сообщение: "Неверный логин или пароль"
         //Фактическое сообщение: "Что-то пошло не так. Попробуйте позднее."
-
         authorizationPage.title.check(matches(isDisplayed()));
         mainPage.mainLogo.check(matches(not(isDisplayed())));
-    } */
-
+    }
+    /*Тест проверяет попытку входа в систему с пустыми данными */
     @Test
     @Feature(value = "Тесты по странице Авторизации")
     @Story("Авторизация в приложении с пустыми данными")
-    public void shouldLoginByEmptyUser() {
+    public void shouldRejectEmptyLoginCredentialsWithMessage() {
         authorizationSteps.emptyLogIn();
 
         //Проверка сообщения:
@@ -104,11 +101,11 @@ public class AuthorizationTest {
         authorizationPage.title.check(matches(isDisplayed()));
         mainPage.mainLogo.check(matches(not(isDisplayed())));
     }
-
+    /*Тест проверяет процесс выхода из учетной записи после успешной авторизации*/
     @Test
     @Feature(value = "Тесты по странице Авторизациии")
     @Story("Выход из учётной записи")
-    public void shouldLogoff() {
+    public void shouldLogoffAndReturnToAuthorizationBlock() {
         authorizationSteps.validLogIn();
         mainSteps.mainScreenLoad();
         mainSteps.logOut();

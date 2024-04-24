@@ -48,19 +48,19 @@ public class EditNewsTest {
             mainSteps.mainScreenLoad();
         }
     }
-
+    /*Тест проверяет процесс редактирования новости. */
     @Test
     @Feature(value = "Тесты по разделу Новостей")
     @Story("Редактирование новости")
-    public void shouldEditNews() {
+    public void shouldSuccessfullyEditNewsAndVerifyChanges() {
 
         String publicationDate = getCurrentDate();
         String publicationTime = getCurrentTime();
 
         String title = "Заголовок";
         String description = "Описание";
-        String newTitle = "Заголовок средактирован";
-        String newDescription = "Описание средактировано";
+        String newTitle = "Заголовок отредактирован";
+        String newDescription = "Описание отредактировано";
 
         mainSteps.openNewsPage();
         controlPanelSteps.openControlPanelPage();
@@ -68,8 +68,6 @@ public class EditNewsTest {
         createNewsSteps.createNews(randomCategory(), title, publicationDate,
                 publicationTime, description);
         createNewsSteps.clickSaveButton();
-
-        //Редактирование
         controlPanelSteps.clickEditNews(title);
         editNewsSteps.checkThatEditNewsPageContentIsFull();
 
@@ -77,21 +75,19 @@ public class EditNewsTest {
                 publicationTime, newDescription);
         editNewsSteps.changeStatus();
         editNewsSteps.clickSaveButton();
-
-        //Проверка по заголовку
         controlPanelSteps.checkIfNewsWithTitle(newTitle);
     }
-
-    /*@Test
+    /*Тест проверяет функциональность отмены редактирования новости */
+    @Test
     @Feature(value = "Тесты по разделу Новостей")
     @Story("Отмена редактирования новости")
-    public void shouldCancelEditNews() {
+    public void shouldCancelEditAndMaintainOriginalNewsDetails() {
 
         String publicationDate = getCurrentDate();
         String publicationTime = getCurrentTime();
 
-        String title = "Заголовок Aki";
-        String description = "Описание Aki";
+        String title = "Заголовок тест";
+        String description = "Описание тест";
 
         mainSteps.openNewsPage();
         controlPanelSteps.openControlPanelPage();
@@ -99,17 +95,13 @@ public class EditNewsTest {
         createNewsSteps.createNews(randomCategory(), title, publicationDate,
                 publicationTime, description);
         createNewsSteps.clickSaveButton();
-
-        //Редактирование
         controlPanelSteps.clickEditNews(title);
         editNewsSteps.checkThatEditNewsPageContentIsFull();
         editNewsSteps.changeStatus();
-
-        //Отмена
         editNewsSteps.clickCancelButton();
         editNewsSteps.clickOKButton();
         controlPanelSteps.checkThatControlPanelContentIsFull();
-    } */
+    } 
 
 }
 

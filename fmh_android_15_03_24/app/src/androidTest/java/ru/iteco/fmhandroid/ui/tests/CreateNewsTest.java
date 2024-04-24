@@ -50,63 +50,56 @@ public class CreateNewsTest {
         }
         activityScenarioRule.getScenario().onActivity(activity -> decorView = activity.getWindow().getDecorView());
     }
-
+    /*Тест проверяет процесс перехода к созданию новости и наличие всех необходимых элементов на странице */
     @Test
     @Feature(value = "Тесты по разделу Новостей")
     @Story("Переход к созданию новости и Наличие всех элементов")
-    public void shouldOpenCreateNews() {
+    public void shouldDisplayAllElementsOnCreateNewsPage() {
         mainSteps.openNewsPage();
         controlPanelSteps.openControlPanelPage();
         controlPanelSteps.openCreateNewsButton();
         createNewsSteps.checkThatCreateNewsPageContentIsFull();
     }
-
+    /*Тест проверяет создание новости с валидными данными */
     @Test
     @Feature(value = "Тесты по разделу Новостей")
     @Story("Cоздание новости с валидными данными")
-    public void shouldCreateNewsValid() {
+    public void shouldSuccessfullyCreateNewsWithValidData() {
 
         String publicationDate = getCurrentDate();
         String publicationTime = getCurrentTime();
-        String title = "Новость от Aki тест";
-        String description = "Описание новости от Aki тест";
-
+        String title = "Новость тест";
+        String description = "Описание новости тест";
         mainSteps.openNewsPage();
         controlPanelSteps.openControlPanelPage();
         controlPanelSteps.openCreateNewsButton();
-
-        //Создание
         createNewsSteps.createNews(randomCategory(), title, publicationDate,
                 publicationTime, description);
         createNewsSteps.clickSaveButton();
-
-        //Проверка, что новость создана
         controlPanelSteps.checkIfNewsWithTitle(title);
     }
 
+    /*Тест проверяет попытку создания новости без ввода данных */
     @Test
     @Feature(value = "Тесты по разделу Новостей")
     @Story("Cоздание новости с пустыми данными")
-    public void shouldCreateEmptyNews() {
+    public void shouldFailToCreateNewsWithEmptyFieldsAndShowMessage() {
 
         mainSteps.openNewsPage();
         controlPanelSteps.openControlPanelPage();
         controlPanelSteps.openCreateNewsButton();
         createNewsSteps.clickSaveButton();
-
-        //Проверка сообщения
         createNewsSteps.checkToastMessageText("Заполните пустые поля", decorView);
     }
 
+    /*Тест проверяет функционал отмены создания новости. */
     @Test
     @Feature(value = "Тесты по разделу Новостей")
     @Story("Отменить создание новости")
-    public void shouldCancelCreateNews() {
+    public void shouldReturnToControlPanelOnNewsCreationCancellation() {
         mainSteps.openNewsPage();
         controlPanelSteps.openControlPanelPage();
         controlPanelSteps.openCreateNewsButton();
-
-        //Отмена
         createNewsSteps.clickCancelButton();
         createNewsSteps.clickOKButton();
         controlPanelSteps.checkThatControlPanelContentIsFull();

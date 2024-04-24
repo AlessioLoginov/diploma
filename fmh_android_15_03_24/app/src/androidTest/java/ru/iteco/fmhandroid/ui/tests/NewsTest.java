@@ -44,53 +44,57 @@ public class NewsTest {
             mainSteps.mainScreenLoad();
         }
     }
-
+    /*Тест проверяет возможность перехода ко всем новостям с главной страницы.*/
     @Test
     @Feature(value = "Тесты по разделу Новостей")
     @Story("Переход ко всем новостям с главной страницы")
-    public void shouldOpenAllNews() {
+    public void shouldAccessAllNewsFromHomePage() {
         mainSteps.openAllNews();
     }
 
+    /*Тест проверяет функциональность разворачивания (раскрытия) отдельной новости на главной странице */
     @Test
     @Feature(value = "Тесты по разделу Новостей")
     @Story("Развернуть новость на главной странице")
-    public void ExpandNewsOnTheMainPage() {
+    public void shouldExpandSingleNewsOnHomePag() {
         newsSteps.clickOneNewsItem(0);
     }
 
+    /*Тест проверяет, что все элементы на странице новостей присутствуют и корректно отображаются. */
     @Test
     @Feature(value = "Тесты по разделу Новостей")
     @Story("Наличие всех элементов на странице Новости")
-    public void shouldBeFullContentInNewsPage() {
+    public void shouldDisplayCompleteContentOnNewsPage() {
         mainSteps.openNewsPage();
         newsSteps.checkThatNewsBlockContentIsFull();
     }
 
+    /*Тест проверяет возможность перехода на страницу панели управления и наличие всех элементов на этой странице. */
+    @Test
     @Feature(value = "Тесты по разделу Новостей")
     @Story("Переход на страницу Панели управления и Наличие всех элементов")
-    public void shouldOpenControlPanelPage() {
+    public void shouldAccessControlPanelWithAllElements() {
         mainSteps.openNewsPage();
         controlPanelSteps.openControlPanelPage();
         controlPanelSteps.checkThatControlPanelContentIsFull();
     }
 
+    /*Тест проверяет возврат на главную страницу со страницы новостей */
     @Test
     @Feature(value = "Тесты по разделу Новостей")
     @Story("Возврат на Главную страницу со страницы Новости")
-    public void shouldOpenMainPageFromNewsPage() {
+    public void shouldReturnToHomePageFromNewsPageWithFullContentCheck() {
         mainSteps.openNewsPage();
         newsSteps.checkThatNewsBlockContentIsFull();
         newsSteps.checkGoBackMainPage();
         mainSteps.checkThatMainBlockContentIsFull();
     }
 
-    // ФИЛЬТРАЦИЯ НОВОСТЕЙ
-
+    /*Тест проверяет функциональность отмены фильтрации новостей.  */
     @Test
     @Feature(value = "Тесты по разделу Новостей")
     @Story("Выход из фильтра без фильтрации новостей")
-    public void testCancelingFiltering() {
+    public void shouldCancelNewsFilterWithoutApplyingChanges() {
         mainSteps.openNewsPage();
         controlPanelSteps.openControlPanelPage();
         controlPanelSteps.openNewsFilter();

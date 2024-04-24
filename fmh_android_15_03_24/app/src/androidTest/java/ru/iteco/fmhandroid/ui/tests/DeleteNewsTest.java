@@ -47,17 +47,17 @@ public class DeleteNewsTest {
             mainSteps.mainScreenLoad();
         }
     }
-
+    /*Тест проверяет процесс удаления новости */
     @Test
     @Feature(value = "Тесты по разделу Новостей")
     @Story("Удаление новости")
-    public void shouldDeleteNews() {
+    public void shouldSuccessfullyDeleteNewsAndVerifyRemoval() {
 
         String publicationDate = getCurrentDate();
         String publicationTime = getCurrentTime();
 
-        String title = "Новость от Aki Delete";
-        String description = "Описание новости от Aki Delete";
+        String title = "Новость тест";
+        String description = "Описание новости тест";
 
         mainSteps.openNewsPage();
         controlPanelSteps.openControlPanelPage();
