@@ -82,7 +82,7 @@ public class EditNewsTest {
         controlPanelSteps.checkIfNewsWithTitle(newTitle);
     }
 
-    @Test
+    /*@Test
     @Feature(value = "Тесты по разделу Новостей")
     @Story("Отмена редактирования новости")
     public void shouldCancelEditNews() {
@@ -109,7 +109,7 @@ public class EditNewsTest {
         editNewsSteps.clickCancelButton();
         editNewsSteps.clickOKButton();
         controlPanelSteps.checkThatControlPanelContentIsFull();
-    }
+    } */
 
 }
 

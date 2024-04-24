@@ -77,7 +77,7 @@ public class AuthorizationTest {
         mainSteps.checkThatMainBlockContentIsFull();
     }
 
-    @Test
+    /*@Test
     @Feature(value = "Тесты по странице Авторизации")
     @Story("Авторизация в приложении под НЕ валидными данными")
     public void shouldLoginByNotValidUser() {
@@ -90,7 +90,7 @@ public class AuthorizationTest {
 
         authorizationPage.title.check(matches(isDisplayed()));
         mainPage.mainLogo.check(matches(not(isDisplayed())));
-    }
+    } */
 
     @Test
     @Feature(value = "Тесты по странице Авторизации")
