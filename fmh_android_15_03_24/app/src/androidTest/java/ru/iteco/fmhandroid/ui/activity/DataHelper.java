@@ -208,7 +208,7 @@ public class DataHelper {
         onView(isRoot()).perform(waitForElement(matcher, millis));
     }
 
-    // Метод для ожидания определенного элемента интерфейса (View)
+       // Метод для ожидания определенного элемента интерфейса (View)
     // в течение заданного времени (в миллисекундах)
 
     public static class User {
