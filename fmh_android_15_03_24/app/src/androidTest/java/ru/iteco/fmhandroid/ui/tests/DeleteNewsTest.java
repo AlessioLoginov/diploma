@@ -56,8 +56,8 @@ public class DeleteNewsTest {
         String publicationDate = getCurrentDate();
         String publicationTime = getCurrentTime();
 
-        String title = "Новость тест";
-        String description = "Описание новости тест";
+        String title = "Новость тест2";
+        String description = "Описание новости тест2";
 
         mainSteps.openNewsPage();
         controlPanelSteps.openControlPanelPage();

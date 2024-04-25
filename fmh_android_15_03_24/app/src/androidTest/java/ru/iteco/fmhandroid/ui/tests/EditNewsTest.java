@@ -86,8 +86,8 @@ public class EditNewsTest {
         String publicationDate = getCurrentDate();
         String publicationTime = getCurrentTime();
 
-        String title = "Заголовок тест";
-        String description = "Описание тест";
+        String title = "Заголовок тест2";
+        String description = "Описание тест2";
 
         mainSteps.openNewsPage();
         controlPanelSteps.openControlPanelPage();
